@@ -1,0 +1,235 @@
+*,
+*:after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: 'montserrat';
+  src: url('/fonts/static/Montserrat-Regular.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'montserrat';
+  src: url('/fonts/static/Montserrat-Medium.ttf');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'montserrat';
+  src: url('/fonts/static/Montserrat-SemiBold.ttf');
+  font-weight: 600;
+}
+:root {
+  font-family: 'montserrat', sans-serif;
+  font-size: 62.5%;
+  --primary-clr: #3176ff;
+  --stats-1: #d0234b;
+  --stats-2: #2bcba3;
+  --stats-3: #e5a11c;
+  --danger: #cb2727;
+  --gray-clr1: #d5d9e3;
+  --dark-blue-1: #103277;
+}
+ul {
+  list-style: none;
+}
+.container {
+  padding: 0 20px;
+}
+header {
+  padding: 3em 0;
+}
+header .logo img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: auto;
+}
+
+.fs-small {
+  font-size: 1.4rem;
+}
+.fs-meduim {
+  font-size: 1.6rem;
+}
+.fs-big {
+  font-size: 2.4rem;
+}
+
+.fw-meduim {
+  font-weight: 500;
+}
+.fw-semi-bold {
+  font-weight: 600;
+}
+.fw-regular {
+  font-weight: 400;
+}
+.lh-16 {
+  line-height: 1.6;
+}
+.stats-cards {
+  padding-top: 5em;
+  padding-bottom: 10em;
+  display: grid;
+  gap: 20px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+  padding: 2em;
+  box-shadow: 0 0 12px var(--gray-clr1);
+  border-radius: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 2px;
+}
+
+.stat-0 {
+  /* for firefox*/
+  color: var(--primary-clr);
+  /* for chrome*/
+  background-color: var(--primary-clr);
+}
+.stat-1 {
+  /* for firefox*/
+  color: var(--stats-1);
+  /* for chrome*/
+  background-color: var(--stats-1);
+}
+.stat-2 {
+  /* for firefox*/
+  color: var(--stats-2);
+  /* for chrome*/
+  background-color: var(--stats-2);
+}
+.stat-3 {
+  /* for firefox*/
+  color: var(--stats-3);
+  /* for chrome*/
+  background-color: var(--stats-3);
+}
+
+.buttons-navigation {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-height: 78px;
+  padding: 1em;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.buttons-navigation button {
+  background-color: var(--primary-clr);
+  color: white;
+  width: 150px;
+  height: 37px;
+  border-radius: 100px;
+  border: none;
+  padding: 0.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.buttons-navigation button svg {
+  fill: white;
+}
+
+.welcomming-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-align: center;
+  background-image: linear-gradient(
+    180deg,
+    var(--primary-clr) 0%,
+    var(--dark-blue-1) 100%
+  );
+  transform: translateX(0);
+  animation: welcomming-screen-slide 0.3s 1s alternate forwards ease-out;
+}
+@keyframes welcomming-screen-slide {
+  100% {
+    transform: translateX(-105%);
+  }
+}
+.welcomming-screen .logo-wrapper {
+  flex-grow: 1;
+  display: grid;
+  place-content: center;
+  gap: 20px;
+  padding: 1em;
+}
+.welcomming-screen .welcomming-screen__logo {
+  width: 150px;
+}
+.welcomming-screen .made-by-wrapper {
+  padding: 3em;
+  opacity: 0.75;
+}
+.filter-screen {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 3em 1.5em;
+  color: white;
+  background-color: rgba(21, 34, 60, 0.95);
+  transition: transform 0.3s ease-in-out;
+}
+.filter-screen[data-state='active'] {
+  transform: translateX(0);
+}
+.filter-screen[data-state='inactive'] {
+  transform: translateX(-105%);
+}
+.filter-screen .filter-screen__navigation {
+  position: relative;
+  text-align: center;
+  margin-bottom: 2em;
+}
+.filter-screen .filter-screen__navigation button {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background-color: transparent;
+  border: none;
+  width: 42px;
+  height: 42px;
+  transform: translateY(-50%);
+}
+.filter-screen .filter-screen__list {
+  flex-grow: 1;
+  display: grid;
+  place-content: center;
+  gap: 20px;
+  text-align: center;
+}
+.filter-screen .filter-screen__list .filter-screen__list__item {
+  padding: 1em;
+}
